@@ -1,5 +1,38 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+}
+#panel {
+  height: 90%;
+  width: 90%;
+  background-color: 'white';
+  border: 3px solid;
+  border-radius: 5px;
+  margin: auto;
+}
+#root {
+  position: static;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+#N {
+  position: absolute;
+  top: 0%;
+  left:50%;
+}
+#S {
+  position:absolute;
+  bottom: 10%;
+  left:50%;
+}
+#E {
+  position:absolute;
+  top: 45%;
+  right:5%;
+}
+#W {
+  position:absolute;
+  top: 45%;
+  left:5%;
 }
