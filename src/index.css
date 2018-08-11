@@ -2,9 +2,16 @@ html, body {
   height: 100%;
   margin: 0;
 }
-#panel {
+#panelframe {
   height: 90%;
   width: 90%;
+}
+#panel {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  
+  left: 5%;
   background-color: 'white';
   border: 3px solid;
   border-radius: 5px;
@@ -35,4 +42,21 @@ html, body {
   position:absolute;
   top: 45%;
   left:5%;
+}
+#panel.example-enter {
+  opacity: 0.01;
+}
+
+#panel.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.example-leave {
+  opacity: 1;
+}
+
+#panel.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
