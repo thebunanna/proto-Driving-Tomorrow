@@ -14,7 +14,6 @@ html, body {
   width: 90%;
 
   left: 5%;
-  background-color: 'white';
   border: 3px solid;
   border-radius: 5px;
   margin: auto;
@@ -25,25 +24,59 @@ html, body {
   width: 100%;
   min-height: 100%;
 }
-#N {
+#background {
   position: absolute;
+  width:30%;
+  height:30%;
+  top: 50%;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.N, .S, .E, .W {
+  position: absolute;
+  width:5%;
+  height:5%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.5;
+  transition: opacity 300ms ease-in;
+}
+.N {
   top: 0%;
   left:50%;
 }
-#S {
-  position:absolute;
+
+.S {
   bottom: 10%;
   left:50%;
+  transform: rotate(180deg);
 }
-#E {
-  position:absolute;
+.E {
   top: 45%;
   right:5%;
+  transform: rotate(90deg);
 }
-#W {
-  position:absolute;
+.W {
   top: 45%;
   left:5%;
+  transform: rotate(-90deg);
+}
+.N:hover {
+  opacity: 1.0;
+  transition: opacity 300ms ease-in;
+}
+.S:hover {
+  opacity: 1.0;
+  transition: opacity 300ms ease-in;
+}
+.E:hover {
+  opacity: 1.0;
+  transition: opacity 300ms ease-in;
+}
+.W:hover {
+  opacity: 1.0;
+  transition: opacity 300ms ease-in;
 }
 #panel.example-enter {
   opacity: 0.01;
@@ -78,7 +111,6 @@ html, body {
 
 #panel.E-leave.E-leave-active {
   left:200%;
-  transition: opacity 1000ms ease-in;
   transition: left 1000ms;
 }
 
@@ -97,14 +129,13 @@ html, body {
 
 #panel.W-leave.W-leave-active {
   left:-200%;
-  transition: opacity 1000ms ease-in;
   transition: left 1000ms;
 }
 
 #panel.N-enter {
   opacity: 0.01;
-}
 
+}
 #panel.N-enter.N-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
@@ -112,11 +143,28 @@ html, body {
 
 #panel.N-leave {
   opacity: 1;
-  z-index: 2;
+  top:-5%;
 }
 
 #panel.N-leave.N-leave-active {
   top:200%;
-  transition: opacity 1000ms ease-in;
+  transition: top 1000ms;
+}
+#panel.S-enter {
+  opacity: 0.01;
+
+}
+#panel.S-enter.S-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.S-leave {
+  opacity: 1;
+  top: 0%;
+}
+
+#panel.S-leave.S-leave-active {
+  top:-200%;
   transition: top 1000ms;
 }

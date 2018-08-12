@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react';
 import {CSSTransitionGroup} from "react-transition-group";
+import ReactSVG from 'react-svg';
 const _ = require('lodash');
 const path = require('path');
 const async = require ('async')
 const fs = require('fs');
 const data = require('./static/data');
+
 console.log(data);
 /*
 async.series([
@@ -34,18 +36,22 @@ class App extends Component {
 
     /**/
     return (
-      <div id="panelframe">
+      <div>
+        <div id="panelframe">
 
-        <CSSTransitionGroup
-          transitionName={trans}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={1000}>
-          {tItem}
-        </CSSTransitionGroup>
-        <Arrow dir = 'N'/>
-        <Arrow dir = 'S'/>
-        <Arrow dir = 'E'/>
-        <Arrow dir = 'W'/>
+          <CSSTransitionGroup
+            transitionName={trans}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={1000}>
+            {tItem}
+          </CSSTransitionGroup>
+          <Arrow dir = 'N'/>
+          <Arrow dir = 'S'/>
+          <Arrow dir = 'E'/>
+          <Arrow dir = 'W'/>
+        </div>
+
+        
       </div>
     );
   }
@@ -136,7 +142,11 @@ class Arrow extends Component {
   }
   render () {
     return (
-      <img id = {this.props.dir} onClick={this.handleClick} src='arrow.svg'/>
+      <ReactSVG svgClassName = {this.props.dir}
+        onClick={this.handleClick}
+        path = {require('./photos/arrow.svg')}
+      />
+        //  <ReactSVG path='/gallery/arrow.svg' id = {this.props.dir} onClick={this.handleClick}/>
     )
   }
 }
