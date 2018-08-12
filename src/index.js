@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import express from "express";
 import path from "path";
@@ -34,4 +33,3 @@ function htmlTemplate( reactDom ) {
     `;
 }
 //ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();

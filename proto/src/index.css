@@ -1,0 +1,122 @@
+/* CSS declarations go here */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+#panelframe {
+  height: 90%;
+  width: 90%;
+}
+#panel {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+
+  left: 5%;
+  background-color: 'white';
+  border: 3px solid;
+  border-radius: 5px;
+  margin: auto;
+}
+#root {
+  position: static;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+#N {
+  position: absolute;
+  top: 0%;
+  left:50%;
+}
+#S {
+  position:absolute;
+  bottom: 10%;
+  left:50%;
+}
+#E {
+  position:absolute;
+  top: 45%;
+  right:5%;
+}
+#W {
+  position:absolute;
+  top: 45%;
+  left:5%;
+}
+#panel.example-enter {
+  opacity: 0.01;
+}
+
+#panel.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.example-exit {
+  opacity: 1;
+}
+
+#panel.example-exit.example-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+#panel.E-enter {
+  opacity: 0.01;
+}
+
+#panel.E-enter.E-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.E-leave {
+  opacity: 1;
+}
+
+#panel.E-leave.E-leave-active {
+  left:200%;
+  transition: opacity 1000ms ease-in;
+  transition: left 1000ms;
+}
+
+#panel.W-enter {
+  opacity: 0.01;
+}
+
+#panel.W-enter.W-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.W-leave {
+  opacity: 1;
+}
+
+#panel.W-leave.W-leave-active {
+  left:-200%;
+  transition: opacity 1000ms ease-in;
+  transition: left 1000ms;
+}
+
+#panel.N-enter {
+  opacity: 0.01;
+}
+
+#panel.N-enter.N-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+#panel.N-leave {
+  opacity: 1;
+  z-index: 2;
+}
+
+#panel.N-leave.N-leave-active {
+  top:200%;
+  transition: opacity 1000ms ease-in;
+  transition: top 1000ms;
+}

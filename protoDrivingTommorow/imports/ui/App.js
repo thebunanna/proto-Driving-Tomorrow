@@ -1,13 +1,12 @@
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { CSSTransitionGroup } from 'react-transition-group'
 const _ = require('lodash');
 const path = require('path');
 const async = require ('async')
-
-const data = require('./static/data');
-
+const fs = require('fs');
+const data = require('../static/data');
+console.log(data);
 /*
 async.series([
   function getPhotos(step) {
@@ -118,9 +117,8 @@ for (let i = 0; i < boundX;i ++){
     items[i][j] = <Panel pos = {[i,j]} key={i*_.max(boundY) + j}/>
   }
 }
-console.log(items)
 
-class App extends Component {
+export default class App extends Component {
   constructor (props) {
     super(props);
     this.state = {position: [0,0], dir:''};
@@ -146,6 +144,3 @@ class App extends Component {
     );
   }
 }
-
-
-export default App;

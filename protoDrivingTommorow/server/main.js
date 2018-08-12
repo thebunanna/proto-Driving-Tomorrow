@@ -1,18 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 
-Meteor.startup(() => {
-  // code to run on server at startup
-});
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
 import express from "express";
 import path from "path";
-import registerServiceWorker from './registerServiceWorker';
 import { renderToString } from "react-dom/server";
-
+/*
 const app = express();
 app.get( "/*", ( req, res ) => {
     const jsx = ( <App /> );
@@ -21,7 +17,7 @@ app.get( "/*", ( req, res ) => {
     res.writeHead( 200, { "Content-Type": "text/html" } );
     res.end( htmlTemplate( reactDom ) );
 } );
-app.listen( 2048 );
+app.listen( 3000 );
 
 function htmlTemplate( reactDom ) {
     return `
@@ -38,6 +34,6 @@ function htmlTemplate( reactDom ) {
         </body>
         </html>
     `;
-}
-//ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+}*/
+//
+//registerServiceWorker();
