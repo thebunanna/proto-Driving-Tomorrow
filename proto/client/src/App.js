@@ -1,64 +1,10 @@
-
 import React, { Component } from 'react';
 import {CSSTransitionGroup} from "react-transition-group";
 import ReactSVG from 'react-svg';
-const _ = require('lodash');
-const path = require('path');
-const async = require ('async')
-const fs = require('fs');
+import Gallery from './Gallery.js';
+import Box from './Box.js';
 const data = require('./static/data');
-
-console.log(data);
-/*
-async.series([
-  function getPhotos(step) {
-    fs.readdir("static", (err, files) => {
-    if (err) {console.log ("wut")};
-    for (let x = 0;x < files.length;x++ ){
-        console.log(files[x]);
-        //const command = require(path.join(__dirname, "commands", files[x]));
-        //bot.commands.set(command.name, command);
-    };
-    step()
-    });
-  }
-])*/
-
-class App extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {position: [0,0], dir:''};
-    panelChange = panelChange.bind(this);
-  }
-  render() {
-    let trans = this.state.dir;
-    let tItem = items[this.state.position[0]][this.state.position[1]];
-
-    /**/
-    return (
-      <div>
-        <div id="panelframe">
-
-          <CSSTransitionGroup
-            transitionName={trans}
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={1000}>
-            {tItem}
-          </CSSTransitionGroup>
-          <Arrow dir = 'N'/>
-          <Arrow dir = 'S'/>
-          <Arrow dir = 'E'/>
-          <Arrow dir = 'W'/>
-        </div>
-
-        
-      </div>
-    );
-  }
-}
-
-const boundX = 4;
-const boundY = [1, 2, 3, 4];
+const _ = require('lodash');
 
 function panelChange(dir) {
   let pos = this.state.position;
@@ -106,30 +52,60 @@ function panelChange(dir) {
   }
   this.setState({position:pos, dir:dir});
 }
-class Panel extends Component {
-  constructor(props) {
-    super(props);
-    //this.state = {pos:this.props.pos}
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    // Do something
-  }
-  render (){
-    return (
-    <div id = 'panel'>
-      <Box pos = {this.props.pos}/>
-
-    </div>
-    )
-  }
+function posChange(pos) {
+  this.setState({position:pos, dir:'jump'});
+  return;
 }
-class Box extends Component {
-  render () {
+class App extends Component {
+  constructor (props) {
+    super(props);
+    if (this.props.pos!==null) {
+      this.state = {position: this.props.pos, dir:''};
+    }
+    else {
+      this.state = {position: [0,0], dir:''};
+    }
+    panelChange = panelChange.bind(this);
+    posChange = posChange.bind(this);
+  }
+  render() {
+    let x = this.state.position[0];
+    let y = this.state.position[1];
+    let trans = this.state.dir;
+    let tItem = items[x][y];
+    let possible = [1,1,1,1];
+    if (boundY[x] === 1) {
+      possible[0] = 0
+      possible[1] = 0
+    }
+    if (y !== 0) {
+      possible[2] = 0
+      possible[3] = 0
+    }
+    let dArrow = []
+    for (let i = 0; i < 4; i++) {
+      if (possible[i]===1)
+        dArrow.push(arrows[i]);
+    }
+    /**/
     return (
-      <div>{this.props.pos}</div>
-    )
+      <div>
+        <div id="panelframe">
+
+          <CSSTransitionGroup
+            transitionName={trans}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
+            {tItem}
+          </CSSTransitionGroup>
+          {dArrow}
+
+        </div>
+        <Jump/>
+
+
+      </div>
+    );
   }
 }
 class Arrow extends Component {
@@ -141,8 +117,9 @@ class Arrow extends Component {
     panelChange(this.props.dir);
   }
   render () {
+
     return (
-      <ReactSVG svgClassName = {this.props.dir}
+      <ReactSVG id={this.props.dir} svgClassName = {this.props.dir}
         onClick={this.handleClick}
         path = {require('./photos/arrow.svg')}
       />
@@ -151,6 +128,69 @@ class Arrow extends Component {
   }
 }
 
+class Panel extends Component {
+  render (){
+    let x = this.props.pos[0];
+    let y = this.props.pos[1];
+    let f = 0;
+    switch (data[x][y].type) {
+      case 'Gallery':
+      f = <Gallery key = {y} src = {data[x][y].src} desc = {''}/>
+
+      break;
+      default:
+      f = <div>NA, In construction...</div>
+    }
+    return (
+    <div id = 'panel'>
+      {f}
+      <Box pos = {this.props.pos}/>
+    </div>
+    )
+  }
+}
+
+class Jump extends Component {
+  render () {
+    return (
+      <div id='jump'>
+        <Info name={'Execs'} pos={[0,0]}/>
+        <Info name={'Gallery'} pos={[1,0]}/>
+        <Info name={'Other'} pos={[3,0]}/>
+        <Info name={'Info'} pos={[2,0]}/>
+      </div>
+    )
+  }
+}
+class Info extends Component {
+  constructor (props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    posChange(this.props.pos);
+  }
+  render () {
+    return (
+      <div onClick={this.handleClick}>
+        {this.props.name}
+      </div>
+    )
+  }
+}
+const boundX = _.keys(data).length;
+const boundY = new Array(boundX);
+for (let i = 0; i < boundX;i++) {
+  boundY[i] = _.keys(data[i]).length;
+}
+console.log (boundX)
+console.log(boundY)
+
+const arrows = new Array(4);
+const directions = ["N","S","E","W"]
+for (let i = 0; i < 4; i++) {
+  arrows[i] = <Arrow key={i} dir = {directions[i]}/>
+}
 const items = new Array(boundX);
 for (let i = 0; i < boundX; i++) {
   items[i] = new Array (_.max(boundY))

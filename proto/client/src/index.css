@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  background-color: white;
 }
 #panelframe {
   height: 90%;
@@ -10,13 +11,14 @@ html, body {
 }
 #panel {
   position: absolute;
-  height: 90%;
+  height: 70%;
   width: 90%;
-
+  top: 5%;
   left: 5%;
   border: 3px solid;
   border-radius: 5px;
   margin: auto;
+  background-color: rgba(0,0,0,0.5);
 }
 #root {
   position: static;
@@ -37,29 +39,29 @@ html, body {
   position: absolute;
   width:5%;
   height:5%;
-  margin-left: auto;
-  margin-right: auto;
   opacity: 0.5;
   transition: opacity 300ms ease-in;
 }
 .N {
   top: 0%;
   left:50%;
+  transform: translate(-50%);
+
 }
 
 .S {
-  bottom: 10%;
+  bottom: 20%;
   left:50%;
-  transform: rotate(180deg);
+  transform: translate(-50%) rotate(180deg);
 }
 .E {
-  top: 45%;
-  right:5%;
+  top: 40%;
+  right:0%;
   transform: rotate(90deg);
 }
 .W {
-  top: 45%;
-  left:5%;
+  top: 40%;
+  left:0%;
   transform: rotate(-90deg);
 }
 .N:hover {
@@ -78,22 +80,20 @@ html, body {
   opacity: 1.0;
   transition: opacity 300ms ease-in;
 }
-#panel.example-enter {
+
+#panel.jump-enter {
   opacity: 0.01;
 }
-
-#panel.example-enter.example-enter-active {
+#panel.jump-enter.jump-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
-
-#panel.example-exit {
+#panel.jump-leave {
   opacity: 1;
 }
-
-#panel.example-exit.example-exit-active {
+#panel.jump-leave.jump-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 #panel.E-enter {
@@ -111,7 +111,7 @@ html, body {
 
 #panel.E-leave.E-leave-active {
   left:200%;
-  transition: left 1000ms;
+  transition: left 500ms;
 }
 
 #panel.W-enter {
@@ -129,7 +129,7 @@ html, body {
 
 #panel.W-leave.W-leave-active {
   left:-200%;
-  transition: left 1000ms;
+  transition: left 500ms;
 }
 
 #panel.N-enter {
@@ -148,7 +148,7 @@ html, body {
 
 #panel.N-leave.N-leave-active {
   top:200%;
-  transition: top 1000ms;
+  transition: top 500ms;
 }
 #panel.S-enter {
   opacity: 0.01;
@@ -166,5 +166,43 @@ html, body {
 
 #panel.S-leave.S-leave-active {
   top:-200%;
-  transition: top 1000ms;
+  transition: top 500ms;
+}
+
+#jump {
+  display: flex;
+  position: absolute;
+  top: 85%;
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background:linear-gradient(to right,rgba(255,255,255,0) , black, rgba(255,255,255,0));
+}
+#jump > div {
+  opacity: 0.5;
+  transition: opacity 300ms ease-in;
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
+#jump > div:hover {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.title {
+  font-family: trend-sans-w00-four,sans-serif;
+}
+.about {
+  border: 1px solid black;
+  padding: 1% 5%;
+  border-radius: 5px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }

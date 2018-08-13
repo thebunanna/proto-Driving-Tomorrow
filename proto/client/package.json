@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "better-img": "^1.3.0",
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
     "react": "^16.4.2",
+    "react-container-dimensions": "^1.4.0",
+    "react-dimensions": "^1.3.1",
     "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-svg": "^5.0.15",
     "react-transition-group": "^1.2.1"
