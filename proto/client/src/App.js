@@ -111,10 +111,20 @@ class App extends Component {
 class Arrow extends Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    this.state = {click:false};
+    this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    panelChange(this.props.dir);
+    if (!this.state.click) {
+      panelChange(this.props.dir);
+      this.setState({click:true});
+      setTimeout(()=>{
+        this.setState({click:false})
+      },500);
+    }
+    else {
+      return;
+    }    
   }
   render () {
 

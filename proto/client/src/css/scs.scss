@@ -1,0 +1,136 @@
+@keyframes rotate90{
+    from {
+        transform: rotate3d(0,0,0,0);
+    }
+    to {
+        transform: rotate3d(1,1,1,1turn);
+    }
+}
+%box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 70px;
+    position: absolute;
+    backface-visibility: inherit;
+    font-size: 60px;
+    color: #fff;
+    opacity: 0.0;
+    border: 1px solid;
+    border-color: black;
+    transition: all 500ms;
+    
+}
+@mixin delay($delay){
+    transition-delay: $delay*300ms
+}
+.front {
+    @extend %box;
+    transform: translateZ(50px) translateY(-100%);
+    background-color: #043963;
+    @include delay(4);
+
+}
+.back {
+    @extend %box;
+    transform: rotateY(180deg) translateZ(50px) translateY(-100%);
+    @include delay(3);
+    background-color: #043963;
+}
+.right {
+    @extend %box;
+    transform: rotateY(90deg) translateZ(50px) translateY(-100%);
+    @include delay(2);
+    background-color: #2D3091
+}
+.left {
+    @extend %box;
+    transform: rotateY(-90deg) translateZ(50px) translateY(-100%);
+    @include delay(1);
+    background-color: #2D3091
+
+}
+.top {
+    @extend %box;
+    height: 100px;
+    transform: rotateX(90deg) translateZ(50px) translateX(100%);
+    @include delay(0);
+    background-color: #0081A5
+}
+.bottom {
+    @extend %box;
+    height: 100px;
+    transform: rotateX(-90deg) translateZ(20px);
+    @include delay(5);
+    background-color: #0081A5
+
+}
+.box {
+    position: absolute;
+    left: 15%;
+    bottom: 5%;
+    width: 100px;
+    height: 100px;
+    perspective: 550px;
+    transform-style: preserve-3d;
+    transform: rotate3d(0.5,1,1, 45deg);
+    transition: all 500ms;
+    animation-name: rotate90;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+%animebox {
+    opacity: 0.7;
+    transition: all 500ms;
+}
+
+.box.y {
+    .left {
+        @extend %animebox;
+        transform: rotateY(-90deg) translateZ(50px);
+        @include delay(3)
+    }
+    .right {
+        @extend %animebox;        
+        transform: rotateY(90deg) translateZ(50px);
+        @include delay(2)
+    }
+    .back {
+        @extend %animebox;        
+        transform: rotateY(180deg) translateZ(50px);
+        @include delay(4)
+    }
+    .front {
+        @extend %animebox;       
+        transform: translateZ(50px);
+        @include delay(1)
+    }
+    .top {
+        @extend %animebox;        
+        transform: rotateX(90deg) translateZ(50px);
+        @include delay(5)
+    }
+    .bottom {
+        @extend %animebox;
+    }
+}
+%stuff {
+    left:80%;
+    position: absolute;
+}
+#f1 {
+    @extend %stuff;
+}
+#f2 {
+    @extend %stuff;
+    top: 10%;
+}
+#f3 {
+    @extend %stuff;
+    top: 20%;
+}
+#f4 {
+    @extend %stuff;
+    top: 30%;
+}

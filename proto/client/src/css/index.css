@@ -16,9 +16,10 @@ html, body {
   top: 5%;
   left: 5%;
   border: 3px solid;
+  border-color: aquamarine;
   border-radius: 5px;
   margin: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(129, 247, 255, 0.473);
 }
 #root {
   position: static;
@@ -178,16 +179,16 @@ html, body {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  background:linear-gradient(to right,rgba(255,255,255,0) , black, rgba(255,255,255,0));
+  background:linear-gradient(to right,rgba(255,255,255,0) , rgba(129, 247, 255, 1), rgba(255,255,255,0));
 }
 #jump > div {
   opacity: 0.5;
   transition: opacity 300ms ease-in;
-  background-color: #f1f1f1;
+  background-color: antiquewhite;
   width: 100px;
   margin: 10px;
+  padding: 10px;
   text-align: center;
-  line-height: 75px;
   font-size: 20px;
 }
 #jump > div:hover {
@@ -197,12 +198,56 @@ html, body {
 
 .title {
   font-family: trend-sans-w00-four,sans-serif;
+  text-align: center;
 }
 .about {
-  border: 1px solid black;
+  border-top: 1px solid black ;
+  border-bottom: 1px solid black ;
   padding: 1% 5%;
   border-radius: 5px;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 400px;
+  margin: 0% 10%;
+  max-height: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.apanel {
+  position: absolute;
+  left: 5%;
+  max-width: 400px;
+  overflow: hidden;
+  height: 100%;
+  background-color: rgba(129, 247, 255, 0.473);
+}
+.hide {
+  transform: rotate(180deg);
+  position: absolute;
+  left:5%;
+  min-width: 400px;
+  height: 100%;
+  background-color: azure;
+}
+
+.hide.c{
+  min-width: 0px;
+  transition: min-width 2s ease-in;
+}
+
+.enterb {
+  text-align: center;
+  display: block;
+  margin: 3% auto;
+  padding: 10px;
+  width: 30%;
+  background-color: aquamarine;
+  opacity: 0.5;
+  transition: opacity 300ms ease-in-out;
+
+  color: black;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+.enterb:hover {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
 }
