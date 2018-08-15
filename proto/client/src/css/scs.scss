@@ -67,11 +67,12 @@
 
 }
 .box {
-    position: absolute;
-    left: 15%;
-    bottom: 5%;
+    position: relative;
+    top: -100px;        
+    left: 150px;
     width: 100px;
     height: 100px;
+
     perspective: 550px;
     transform-style: preserve-3d;
     transform: rotate3d(0.5,1,1, 45deg);
@@ -133,4 +134,43 @@
 #f4 {
     @extend %stuff;
     top: 30%;
+}
+
+.Arrow {
+    position: absolute;
+    transform: rotate(-90deg);
+    transition: all 1500ms ease-in-out;
+    z-index:1;
+}
+.clouds {
+    position: absolute;
+    opacity: 0.8;
+    display: block;
+    height:auto;
+}
+#backgroundc {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#redirect {
+    position: absolute;
+    display: block;
+    height:100%;
+    z-index: 3;
+}
+#anim {
+    position: relative;
+}
+#app {
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+}
+#gpic {
+    height:100%;
+    width:100%;
+    object-fit: contain;
+
 }

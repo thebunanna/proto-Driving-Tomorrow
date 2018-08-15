@@ -89,13 +89,13 @@ class App extends Component {
     }
     /**/
     return (
-      <div>
+      <div id='app'>
         <div id="panelframe">
 
           <CSSTransitionGroup
             transitionName={trans}
             transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}>
+            transitionLeaveTimeout={1000}>
             {tItem}
           </CSSTransitionGroup>
           {dArrow}

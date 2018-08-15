@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 export default class Redirect extends Component {
   render() {
     return (
-      <div>
+      <div id='redirect'>
         <Bar />
-        <Anim />
       </div>
     )
   }
@@ -41,9 +40,9 @@ class Bar extends Component {
       <div className='bar'>
         <div className={'apanel'}
          style={{background:
-         'linear-gradient(45deg, rgba(129, 247, 255, 0.473) 0%,' + 
+         'linear-gradient(45deg, rgba(129, 247, 255, 0) 0%,' + 
          'rgba(255, 255, 255, 1.0)'+ this.state.grad + '% , ' +
-         'rgba(129, 247, 255, 0.473) 100%)'}}>
+         'rgba(129, 247, 255, 0) 100%)'}}>
           <h1>Texas Academy of Math and Science</h1>
           <div className='title'>driving<b>Tommorow</b></div>
           <div  className='about'>      
@@ -56,6 +55,8 @@ class Bar extends Component {
           <a href="https://www.facebook.com/drivingtmrw/"className='fb'>FaceBook</a>
 
         </div>
+        <Anim />
+
         <div className={this.state.status}></div>
       </div>      
       )
@@ -64,11 +65,14 @@ class Bar extends Component {
 class Anim extends Component {
   constructor(props) {
     super(props);
-    this.state = {changed:'', x:1, y:1, z:1, deg:45};
+    this.state = {changed:'', x:1, y:1, z:1, deg:45, show:false};
   }
   componentDidMount () {
+    if (window.innerHeight > 600) {
+      this.setState({show:true})
+    }
     setInterval(()=>{      
-      this.setState({changed: this.state.changed == '' ? ' y': ''})
+      this.setState({changed: this.state.changed === '' ? ' y': ''})
     },4000);
     
   }
@@ -85,6 +89,7 @@ class Anim extends Component {
       break;
       case 'deg':
       this.setState({deg:e.target.value/10})
+      break;
       default:      
       break;
     }
@@ -92,7 +97,7 @@ class Anim extends Component {
   render() {
     let x = this.state.changed;
     return (
-      <div>
+      <div id='anim'>
         <div style={{display:'none'}}>
           <input id='f1' onChange={this.handleRange('x')} type='range' min='-100' max='100'></input>
           <input id='f2' onChange={this.handleRange('y')} type='range' min='-100' max='100'></input>
@@ -105,7 +110,8 @@ class Anim extends Component {
          this.state.x+','+
          this.state.y+','+
          this.state.z+','+
-         this.state.deg +'turn)'}} >
+         this.state.deg +'turn)',
+         display:this.state.show ? 'block':'none'}} >
           <div className='front'></div>
           <div className='back'></div>
           <div className='right'></div>

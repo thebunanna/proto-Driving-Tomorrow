@@ -95,9 +95,9 @@
 }
 
 .box {
-  position: absolute;
-  left: 15%;
-  bottom: 5%;
+  position: relative;
+  top: -100px;
+  left: 150px;
   width: 100px;
   height: 100px;
   -webkit-perspective: 550px;
@@ -172,5 +172,52 @@
 
 #f4 {
   top: 30%;
+}
+
+.Arrow {
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: all 1500ms ease-in-out;
+  transition: all 1500ms ease-in-out;
+  z-index: 1;
+}
+
+.clouds {
+  position: absolute;
+  opacity: 0.8;
+  display: block;
+  height: auto;
+}
+
+#backgroundc {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#redirect {
+  position: absolute;
+  display: block;
+  height: 100%;
+  z-index: 3;
+}
+
+#anim {
+  position: relative;
+}
+
+#app {
+  position: absolute;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+}
+
+#gpic {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 /*# sourceMappingURL=scs.css.map */
