@@ -5,7 +5,7 @@ const random = require("random-js")();
 function unMount(index){
     let cClouds = this.state.clouds
     for (let i = 0; i < 10; i++) {
-        if (index === cClouds[i].key) {
+        if (index == cClouds[i].key) {
             cClouds.splice(i,1);
             break;
         }
@@ -21,6 +21,7 @@ export default class Background extends Component {
     }    
     componentDidMount() {
         const width = window.innerWidth;
+        console.log(width);
         const bounds = [];
         const pos = [];
         const top = [];
@@ -63,6 +64,7 @@ export default class Background extends Component {
             currentClouds.push({key:key,c:c,left:pos,z:z})
         }
         this.setState({clouds:currentClouds});
+        console.log(currentClouds);
         
         setRandomInterval(()=>{            
             if (this.state.clouds.length < 10) {                

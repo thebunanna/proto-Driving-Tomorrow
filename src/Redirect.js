@@ -52,7 +52,7 @@ class Bar extends Component {
             Additionally, Driving Tomorrow has provided numerous volunteering opportunities to the TAMS/UNT population.
           </div>
           <div className='enterb' onClick={this.handleClick}>Enter</div>
-          <a href="https://www.facebook.com/drivingtmrw/"className='fa fa-facebook'> </a>
+          <a href="https://www.facebook.com/drivingtmrw/"className='fb'>FaceBook</a>
 
         </div>
         <Anim />
