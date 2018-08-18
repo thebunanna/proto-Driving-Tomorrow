@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Img from 'react-image';
 import actions from './redux/actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Img from 'react-image';
 class Gallery extends Component {
   constructor(props) {
     super (props);
@@ -13,10 +13,13 @@ class Gallery extends Component {
     this.props.actions.modalChange(this.props.desc);    
   }
   render() {
-    //let item= <div className='loader'></div>   
+    let src = require('./gallery/'+this.props.desc+'/'+this.props.data[1][this.props.y][this.props.desc][0])
     return(
-      <button onClick={this.handleClick}>{this.props.desc}</button>
-      //<Img id='gpic' src={this.props.src} loader={item} decode={false}/>
+      <div className="gallerycontainer">
+        <div className="galleryT">{this.props.desc}</div>
+        <Img src={src} id={'gpic'} onClick={this.handleClick}/>
+        <div className="galleryT">Click On the Picture Above</div>
+      </div>
     )
   }
 }

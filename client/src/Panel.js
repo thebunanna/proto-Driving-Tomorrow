@@ -10,7 +10,7 @@ export default class Panel extends Component {
       let f = 0;
       switch (data[x][y].type) {
         case 'Gallery':
-        f = <Gallery key = {y} desc = {Object.keys(this.props.data[x][y])[2]}/>
+        f = <Gallery key = {y} y= {y} desc = {Object.keys(this.props.data[x][y])[2]}/>
   
         break;
         default:

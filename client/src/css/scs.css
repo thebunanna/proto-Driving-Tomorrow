@@ -219,6 +219,26 @@
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-filter: blur(2px) brightness(0.5);
+          filter: blur(2px) brightness(0.5);
+}
+
+.gallerycontainer {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  margin: 0% auto;
+}
+
+.galleryT {
+  text-align: center;
+}
+
+.mainImage {
+  width: 70%;
+  height: 70%;
+  margin: auto;
+  display: block;
 }
 
 @-webkit-keyframes spin {
@@ -244,15 +264,14 @@
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 5px solid #f3f3f3;
   /* Light grey */
-  border-top: 16px solid #3498db;
+  border-top: 5px solid #3498db;
   /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  display: block;
   margin: auto;
   -webkit-animation: spin 2s linear infinite;
           animation: spin 2s linear infinite;
@@ -264,5 +283,35 @@
   height: 100%;
   width: 100%;
   z-index: 6;
+}
+
+.flexview .preview, .flexview .preview.focus {
+  width: 20%;
+  margin: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.flexview {
+  background-color: #0081A5;
+  width: 70%;
+  height: 100px;
+  margin: 0% auto;
+  top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flexview .preview {
+  opacity: 0.8;
+}
+
+.flexview .preview.focus {
+  border: 2px solid;
+  border-color: blue;
 }
 /*# sourceMappingURL=scs.css.map */

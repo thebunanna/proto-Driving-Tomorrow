@@ -9,8 +9,10 @@ class Jump extends Component {
             return <Info key={val} name={val} pos={[index,0]} change={this.props.actions.posChange}/>
         })        
         return (
-            <div id='jump'>
-                {info}
+            <div id='jumpcontainer'>
+                <div id='jump'>
+                    {info}
+                </div>
             </div>
         )
     }
