@@ -25,7 +25,8 @@ let initialState = {
   pos: [0,0],
   boundX: boundX,
   boundY: boundY,
-  name: ''
+  name: '',
+  jump: 'none'
 }
 
 let store = configureStore(initialState);

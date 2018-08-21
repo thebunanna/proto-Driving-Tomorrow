@@ -1,4 +1,4 @@
-import {CHANGE_DIR, POS_CHANGE, MODAL_CHANGE} from './constants.js'
+import {CHANGE_DIR, POS_CHANGE, MODAL_CHANGE, TOGGLE_JUMP} from './constants.js'
 import update from 'immutability-helper';
 let reducer = (state, action) => {
     switch (action.type) {
@@ -51,7 +51,9 @@ let reducer = (state, action) => {
       case POS_CHANGE: 
         return update(state, {pos:{$set: action.pos}});
       case MODAL_CHANGE:
-        return update(state, {name :{$set: action.name}})
+        return update(state, {name :{$set: action.name}});
+      case TOGGLE_JUMP:
+        return update(state, {jump: {$set: action.toggle}});
       default:
         return state;
     }

@@ -1,4 +1,4 @@
-import {CHANGE_DIR, POS_CHANGE, MODAL_CHANGE} from './constants.js'
+import {CHANGE_DIR, POS_CHANGE, MODAL_CHANGE, TOGGLE_JUMP} from './constants.js'
 
 let actions = {
     changeDir: function(dir) {
@@ -18,6 +18,12 @@ let actions = {
         return {
             type: MODAL_CHANGE,
             name: name
+        }
+    },
+    toggleJump: function (toggle) {
+        return {
+            type: TOGGLE_JUMP,
+            toggle: toggle
         }
     }
 }

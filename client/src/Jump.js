@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from './redux/actions'
-class Jump extends Component {
+import Img from 'react-image';
+class Jump extends Component {    
     render () {
         let titles = ['Execs','Gallery','Info','Other'];
         const info = titles.map((val, index)=>{
-            return <Info key={val} name={val} pos={[index,0]} change={this.props.actions.posChange}/>
+            let style = {}
+            if (index===this.props.pos[0]) {
+                style = {borderBottom: '4px solid rgb(227, 253, 245)', opacity: 1}
+            }
+            return <Info key={val} name={val} pos={[index,0]} style={style} change={this.props.actions.posChange}/>
         })        
         return (
-            <div id='jumpcontainer'>
-                <div id='jump'>
-                    {info}
-                </div>
+            <div id={'jumpcontainer'}>   
+                <Img src={require('./photos/drivingtmrw.png')} id='thumb'/>
+                <div id={'jump'}>
+                    {info}                    
+                </div>                                                                
             </div>
         )
     }
@@ -27,7 +33,7 @@ class Info extends Component {
     }
     render () {
       return (
-        <div onClick={this.handleClick}>
+        <div onClick={this.handleClick} style={this.props.style}>
           {this.props.name}
         </div>
       )

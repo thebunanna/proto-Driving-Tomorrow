@@ -235,4 +235,12 @@
 
     }
 }
-
+#thumb {
+    object-fit: contain;
+    height: 80%;
+    width: auto;
+    display: block;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+}
